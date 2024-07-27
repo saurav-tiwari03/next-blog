@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import Blog from "@/models/blog";
+import connect from "@/config/database";
 
+connect();
 
 export async function GET(request: NextRequest) {
   try {
