@@ -14,6 +14,7 @@ type Blog = {
   likes: string[];
   comments: Comment[];
 };
+const [blog, setBlog] = useState<Blog | null>(null);
 
 type Comment = {
   _id: string;

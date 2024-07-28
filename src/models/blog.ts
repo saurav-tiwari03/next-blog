@@ -18,9 +18,11 @@ const blogSchema = new mongoose.Schema({
   },
   comments:[{
     type:mongoose.Schema.ObjectId,
+    ref:"Comments"
   }],
   likes:[{
     type: mongoose.Schema.ObjectId,
+    ref:"Likes"
   }]
 },{timestamps:true});
 
