@@ -13,6 +13,17 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: calc(80px / cos(45deg));
+  height: 14px;
+  background: repeating-linear-gradient(-45deg,#000 0 15px,#0000 0 20px) left/200% 100%;
+  animation: l3 2s infinite linear;
+}
+@keyframes l3 {
+    100% {background-position:right}
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
