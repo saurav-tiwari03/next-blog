@@ -1,1 +1,1 @@
-# Blogapp using Nexxtjs and ShadCN
+# Blogapp using Nextjs and ShadCN
