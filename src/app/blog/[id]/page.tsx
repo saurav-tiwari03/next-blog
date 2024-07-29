@@ -14,7 +14,6 @@ type Blog = {
   likes: string[];
   comments: Comment[];
 };
-const [blog, setBlog] = useState<Blog | null>(null);
 
 type Comment = {
   _id: string;
@@ -27,7 +26,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState<Comment[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // New state variable for loading
+  const [isLoading, setIsLoading] = useState(true);
 
   const getBlogById = async () => {
     try {
@@ -38,7 +37,7 @@ export default function Page({ params }: { params: { id: string } }) {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false); // Set loading to false after fetching data
+      setIsLoading(false);
     }
   };
 
@@ -65,9 +64,9 @@ export default function Page({ params }: { params: { id: string } }) {
         </Link>
       </div>
       <div className="min-h-[500px] w-[80%] bg-[#f9f5ff] p-4 relative">
-        {isLoading ? ( 
+        {isLoading ? (
           <div className="flex items-center justify-center h-full">
-            <div className="loader"></div> 
+            <div className="loader"></div>
           </div>
         ) : (
           blog && (
@@ -76,8 +75,8 @@ export default function Page({ params }: { params: { id: string } }) {
                 <div>
                   <div className="flex gap-2 flex-wrap text-[#6941c6] font-semibold">
                     <div>
-                      <Link className="hover:underline hover:text-[#7b5aca]" href={'/user/1'}>Saurav Tiwari</Link>
-                      <p className="text-sm">21/07/2024</p>
+                      <Link className="hover:underline hover:text-[#7b5aca]" href={`/user/${blog._id}`}>{/* Add dynamic user name here */}Saurav Tiwari</Link>
+                      <p className="text-sm">{/* Add dynamic date here */}21/07/2024</p>
                     </div>
                   </div>
                 </div>
