@@ -13,7 +13,7 @@ import Link from 'next/link';
 export default function AddBlog() {
   return (
     <div className='fixed text-5xl top-4 right-8  text-[#6941c6] rounded-full'>
-      <Link href={`/blog/create`}>
+      <Link href={`/admin`}>
         <TooltipProvider >
           <Tooltip>
             <TooltipTrigger><MdOutlineAdd className=''/></TooltipTrigger>

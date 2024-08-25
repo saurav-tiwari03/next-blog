@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return NextResponse.json({ success: false, message: 'Email already exists' }, { status: 400 });
+      return NextResponse.json({ success: false, message: 'User with this email not found' }, { status: 400 });
     }
 
     const checkPassword = await bcrypt.compare(password, user.password);
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
 
     const response = NextResponse.json({
       success: true,
-      message: 'User created successfully',
+      message: 'User logged successfully',
       token: token,
     });
 

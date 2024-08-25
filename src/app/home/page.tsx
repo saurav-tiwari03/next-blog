@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import Link from "next/link";
 import AddBlog from "@/components/AddBlog";
+import { useRouter } from 'next/router';
+
 
 // Define the blog type
 type Blog = {
@@ -18,10 +20,10 @@ type Blog = {
 };
 
 export default function Page() {
-  // Initialize blogs with the Blog[] type
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // New state variable for loading
-
+  const [isLoading, setIsLoading] = useState(true); 
+  // const router = useRouter();
+  
   const getAllBlogs = async () => {
     try {
       const response = await axios.get<Blog[]>(`${process.env.NEXT_PUBLIC_API_URL}/allblogs`);
@@ -33,8 +35,12 @@ export default function Page() {
       setIsLoading(false); // Set loading to false after fetching data
     }
   };
+    const urlParams = new URLSearchParams(window.location.search);
+    const isNotAdmin = urlParams.get('notAdmin') === 'true';
+    console.log(isNotAdmin);
 
   useEffect(() => {
+
     getAllBlogs();
   }, []);
 

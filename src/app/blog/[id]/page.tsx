@@ -22,6 +22,10 @@ type Comment = {
   date: string;
 };
 
+export function Component ({params}:{params:{id:string}}) {
+  return;
+}
+
 export default function Page({ params }: { params: { id: string } }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comment, setComment] = useState("");
